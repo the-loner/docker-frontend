@@ -1,0 +1,9 @@
+sudo: required
+services: 
+  - docker
+
+before_install: 
+  - docker build -t theloner/docker-frontend -f Dockerfile.dev .
+
+script: 
+  - docker run theloner/docker-frontend -- --coverage
